@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><img src="logo.png" alt="شعار ميكس كيميا" style="width: 150px; height: auto;">
+<head>
   <meta charset="UTF-8">
   <title>ميكس كيميا - مستر محمد عارف</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
       background: #f8f9fa;
       color: #333;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .hero {
@@ -21,118 +24,90 @@
       padding: 60px 20px;
     }
 
-    .hero img {
-      width: 160px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+    .hero img {width: 150px; margin-bottom: 20px;}
+    .hero h1 {font-size: 34px; margin-bottom: 10px;}
+    .hero p {font-size: 20px; margin-bottom: 0;}
 
     .btn {
-      display: block;
-      width: 280px;
-      margin: 15px auto;
-      padding: 15px;
-      background-color: #1d3557;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 50px;
       font-size: 18px;
       font-weight: 700;
+      color: #fff;
+      text-decoration: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      text-align: center;
     }
+    .btn:hover {transform: scale(1.07); filter: brightness(1.1);}
+    .btn-main {background-color: #1d3557;}
+    .btn-video {background-color: #ff4500;}
+    .btn-whatsapp {background-color: #25d366;}
+    .btn-facebook {background-color: #1877f2;}
+    .btn-youtube {background-color: #ff0000;}
+    .btn-tiktok {background-color: #000;}
+    .btn-instagram {background: radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af, #515bd4);}
+    .btn-telegram {background-color: #0088cc;}
+    .btn-group {background-color: #6c757d;}
 
-    .btn:hover {
-      background-color: #457b9d;
-      transform: translateY(-3px);
-    }
-
-    /* زرار مميز لفيديو الاشتراك */
-    .btn-video {
-      background-color: #ff4500; /* لون برتقالي او مميز */
-      color: #fff;
-    }
-    .btn-video:hover {
-      background-color: #e03d00;
-    }
-
-    .btn-facebook {
-      background-color: #1877f2;
-      color: #fff;
-    }
-    .btn-facebook:hover {
-      background-color: #145dbf;
-    }
-
-    .btn-youtube {
-      background-color: #ff0000;
-      color: #fff;
-    }
-    .btn-youtube:hover {
-      background-color: #cc0000;
-    }
-
-    .btn-tiktok {
-      background-color: #000000;
-      color: #fff;
-    }
-    .btn-tiktok:hover {
-      background-color: #222222;
-    }
-
-    .btn-telegram {
-      background-color: #0088cc;
-      color: #fff;
-    }
-    .btn-telegram:hover {
-      background-color: #006fa1;
-    }
-
-    .btn-whatsapp {
-      background-color: #25d366;
-      color: #fff;
-    }
-    .btn-whatsapp:hover {
-      background-color: #1ebe5d;
-    }
-
-    .section {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .section-title {
-      font-size: 26px;
-      margin-bottom: 25px;
-      color: #1d3557;
-      font-weight: 700;
-    }
+    .section {text-align: center; padding: 40px 20px;}
+    .section-title {font-size: 24px; margin-bottom: 20px; color: #1d3557; font-weight: 700;}
+    .support-buttons {display: flex; flex-direction: column; gap: 15px; align-items: center;}
+    .support-row {display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;}
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       background: #1d3557;
       color: #fff;
-      margin-top: 40px;
       font-size: 14px;
+      margin-top: auto;
     }
 
-    i {
-      margin-left: 8px;
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #1d3557;
+      color: #fff;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s;
     }
+    #backToTop:hover {background: #457b9d;}
+
+    /* زر صلي على محمد */
+    #prayBtn {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: #28a745;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #prayBtn:hover {background: #218838;}
+    #prayBtn i {font-size: 20px; margin-bottom: 5px;}
   </style>
 </head>
 <body>
+
   <section class="hero">
     <img src="logo.png" alt="شعار ميكس كيميا">
     <h1>اهلا بيك في عيلتنا</h1>
@@ -140,42 +115,67 @@
   </section>
 
   <section class="section">
-    <a href="https://mix-chemistry.com/home" target="_blank" class="btn">
-      🌐 المنصة
-    </a>
-    <a href="https://youtu.be/zzdqyYfpw88?feature=shared" target="_blank" class="btn btn-video">
-      🎥 ازاي تشترك في المنصة
-    </a>
+    <a href="https://mix-chemistry.com/home" target="_blank" class="btn btn-main">🌐 المنصة</a>
+    <a href="https://youtu.be/zzdqyYfpw88?feature=shared" target="_blank" class="btn btn-video">🎥 ازاي تشترك في المنصة</a>
   </section>
 
   <section class="section">
     <div class="section-title">الدعم الفني</div>
-    <a href="tel:01503737670" class="btn">📞 اتصل بالدعم الفني</a>
+    <a href="https://wa.me/201505262848" target="_blank" class="btn btn-whatsapp">💬 واتساب الدعم الفني</a>
   </section>
 
   <section class="section">
     <div class="section-title">الدعم العلمي</div>
-    <a href="tel:01557102966" class="btn">📚 3 ث (رقم 1)</a>
-    <a href="tel:01559828600" class="btn">📚 3 ث (رقم 2)</a>
-    <a href="tel:01234567890" class="btn">📘 2 ث</a>
-    <a href="tel:01234567891" class="btn">📗 1 ث</a>
+    <div class="support-buttons">
+      <div class="support-row">
+        <a href="https://wa.me/201557102966" target="_blank" class="btn btn-whatsapp">📚 3 ث (رقم 1)</a>
+        <a href="https://wa.me/201559828600" target="_blank" class="btn btn-whatsapp">📚 3 ث (رقم 2)</a>
+      </div>
+      <a href="https://wa.me/201557102966" target="_blank" class="btn btn-whatsapp">📘 2 ث</a>
+      <a href="https://wa.me/201559828600" target="_blank" class="btn btn-whatsapp">📗 1 ث</a>
+    </div>
   </section>
 
   <section class="section">
     <div class="section-title">تابعنا على</div>
-    <a href="https://facebook.com/mixchemistry1" target="_blank" class="btn btn-facebook">
-      <i class="fab fa-facebook"></i> فيسبوك
-    </a>
-    <a href="https://youtube.com/@mixchemistry1" target="_blank" class="btn btn-youtube">
-      <i class="fab fa-youtube"></i> يوتيوب
-    </a>
-    <a href="https://www.tiktok.com/@mixchemistry1" target="_blank" class="btn btn-tiktok">
-      <i class="fab fa-tiktok"></i> تيكتوك
-    
+    <div class="support-row">
+      <a href="https://facebook.com/mixchemistry1" target="_blank" class="btn btn-facebook"><i class="fab fa-facebook"></i> فيسبوك</a>
+      <a href="https://youtube.com/@mixchemistry1" target="_blank" class="btn btn-youtube"><i class="fab fa-youtube"></i> يوتيوب</a>
+      <a href="https://www.tiktok.com/@mixchemistry1" target="_blank" class="btn btn-tiktok"><i class="fab fa-tiktok"></i> تيكتوك</a>
+      <a href="https://instagram.com/mixchemistry1" target="_blank" class="btn btn-instagram"><i class="fab fa-instagram"></i> انستجرام</a>
+      <a href="https://whatsapp.com/channel/0029VbBicehEawdqGqoW7q1j" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> قناة واتساب</a>
+      <a href="https://m.facebook.com/groups/334354954908345/?ref=share&mibextid=NSMWBT" target="_blank" class="btn btn-group"><i class="fa fa-users"></i> جروب فيسبوك</a>
+      <a href="https://t.me/+Gv-9olKBXtg3YTQ0" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> تليجرام 3 ث</a>
+    </div>
   </section>
 
-  <footer>
-    © 2025 ميكس كيميا - جميع الحقوق محفوظة
-  </footer>
+  <footer>© 2025 ميكس كيميا - مستر محمد عارف</footer>
+
+  <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- زر صلي على محمد -->
+  <button id="prayBtn">
+    <i class="fas fa-mosque"></i>
+    دوس هنا
+  </button>
+
+  <script>
+    const btn = document.getElementById("backToTop");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+    btn.onclick = function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    document.getElementById("prayBtn").onclick = function() {
+      alert("اللهم صل وسلم على سيدنا محمد");
+    };
+  </script>
+
 </body>
 </html>
